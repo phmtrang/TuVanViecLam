@@ -8,29 +8,31 @@ package DB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author PhamTrang
  */
 public class DAO {
-    String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";   
-    private Connection conn = null;  
+    String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";    
     private String server = "localhost:3306";
     private String db = "httt";
     private String user = "root";
-    private String pass = "";
+    private String pass = "trang1034408043";
     
-    public void dao(){
-        setupConnection();
+    public DAO(){
     }
-    private void setupConnection() {
+    
+    public Connection getConnection () {
+        Connection conn = null;
         try {
             String url = "jdbc:mysql://" + server + "/" + db + "?useUnicode=true&characterEncoding=UTF-8";
-            
             conn = DriverManager.getConnection(url, user, pass);
         } catch (SQLException ex) {
             System.err.println("Loi ket noi DB: " + ex.getMessage());
         }
+        return conn;
     }
 }

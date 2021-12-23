@@ -5,6 +5,14 @@
  */
 package view;
 
+import DB.DAO;
+import com.mysql.cj.protocol.Resultset;
+import com.sun.jdi.connect.spi.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author PhamTrang
@@ -238,4 +246,5 @@ public class page2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
 }
