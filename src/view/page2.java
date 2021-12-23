@@ -6,10 +6,8 @@
 package view;
 
 import DB.DAO;
-import com.mysql.cj.protocol.Resultset;
-import com.sun.jdi.connect.spi.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,8 +22,11 @@ public class page2 extends javax.swing.JFrame {
      */
     private page1 p1;
     private page3 p3;
+    private DAO dao;
     public page2() {
         initComponents();
+        showChuyenNganh();
+        showHinhThucLamViec();
     }
 
     /**
@@ -40,14 +41,14 @@ public class page2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        chuyenNganh = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        thoiGian = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        tinhCach = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        kiNang = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -66,33 +67,21 @@ public class page2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jLabel1.setText("Bạn học chuyên ngành gì?");
 
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        chuyenNganh.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jLabel3.setText("Bạn là người như thế nào?");
 
-        jComboBox2.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        thoiGian.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jLabel4.setText("Bạn có kĩ năng nào?");
 
-        jList1.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        tinhCach.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jScrollPane1.setViewportView(tinhCach);
 
-        jList2.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jList2);
+        kiNang.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jScrollPane2.setViewportView(kiNang);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jLabel7.setText("Kiểu công việc mà bạn muốn làm là?");
@@ -140,8 +129,8 @@ public class page2 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox1, 0, 317, Short.MAX_VALUE)
-                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(chuyenNganh, 0, 317, Short.MAX_VALUE)
+                                    .addComponent(thoiGian, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -160,11 +149,11 @@ public class page2 extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chuyenNganh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(thoiGian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -173,7 +162,7 @@ public class page2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -194,7 +183,30 @@ public class page2 extends javax.swing.JFrame {
         p3.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*Hiển thị chuyên ngành*/
+    public void showChuyenNganh(){
+        dao = new DAO();
+        ResultSet rs = dao.getChuyenNganh();
+        try {
+            while(rs.next()){
+                chuyenNganh.addItem(rs.getString("chuyenNganh"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    /*Hiển thị thời gian làm việc*/
+    public void showHinhThucLamViec(){
+        try {
+            dao = new DAO();
+            ResultSet rs = dao.gethinhThucLamViec();
+            while(rs.next()){
+                thoiGian.addItem(rs.getString("hinhThucLamViec"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -231,20 +243,20 @@ public class page2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> chuyenNganh;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JList<String> kiNang;
+    private javax.swing.JComboBox<String> thoiGian;
+    private javax.swing.JList<String> tinhCach;
     // End of variables declaration//GEN-END:variables
 
 }
