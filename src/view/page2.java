@@ -27,6 +27,8 @@ public class page2 extends javax.swing.JFrame {
         initComponents();
         showChuyenNganh();
         showHinhThucLamViec();
+        showTinhCach();
+        showKiNang();
     }
 
     /**
@@ -131,7 +133,7 @@ public class page2 extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(chuyenNganh, 0, 317, Short.MAX_VALUE)
                                     .addComponent(thoiGian, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -154,13 +156,13 @@ public class page2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(thoiGian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -207,6 +209,30 @@ public class page2 extends javax.swing.JFrame {
             Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    /*Hiển thị tính cách*/
+     public showTinhCach(){
+    dao = new DAO();
+        ResultSet rs = dao.gettinhCach();
+        try {
+            while(rs.next()){
+                tinhCach.addItem(rs.getString("tinhCach"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+    /*Hiển thị kĩ năng*/
+    public showKiNang(){
+    dao = new DAO();
+        ResultSet rs = dao.getkiNang();
+        try {
+            while(rs.next()){
+                kiNang.addItem(rs.getString("kiNang"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
     /**
      * @param args the command line arguments
      */
