@@ -216,8 +216,8 @@ public class page3 extends javax.swing.JFrame {
             Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-     public showChungChi(){
+    /*Hiển thị chứng chỉ*/
+    public showChungChi(){
     dao = new DAO();
         ResultSet rs = dao.getchungChi();
         try {

@@ -209,7 +209,7 @@ public class page2 extends javax.swing.JFrame {
             Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    /*Hiển thị tính cách*/
      public showTinhCach(){
     dao = new DAO();
         ResultSet rs = dao.gettinhCach();
@@ -221,7 +221,7 @@ public class page2 extends javax.swing.JFrame {
             Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
-
+    /*Hiển thị kĩ năng*/
     public showKiNang(){
     dao = new DAO();
         ResultSet rs = dao.getkiNang();
