@@ -118,4 +118,50 @@ public class DAO {
         }
         return null;
     }
+
+    public ResultSet gettinhCach(){
+       
+        try {
+            Class.forName(JDBC_DRIVER);
+            Statement stm = conn.createStatement();
+            String sql = "select* from tinhcach;";
+            ResultSet rs = stm.executeQuery(sql);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }  
+
+    public ResultSet getkiNang(){
+       
+        try {
+            Class.forName(JDBC_DRIVER);
+            Statement stm = conn.createStatement();
+            String sql = "select* from kinang;";
+            ResultSet rs = stm.executeQuery(sql);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public ResultSet getchungChi(){   
+        try {
+            Class.forName(JDBC_DRIVER);
+            Statement stm = conn.createStatement();
+            String sql = "select* from chungchi;";
+            ResultSet rs = stm.executeQuery(sql);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }
