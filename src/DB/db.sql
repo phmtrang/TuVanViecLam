@@ -152,7 +152,7 @@ INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS13', 'Thị 
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS14', 'Quản lý tài chính công');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS15', 'Thương mại điện thử');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS16', 'Quản lý tài chính doanh nghiệp');
-INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('eco17', 'Hệ thống thông tin kinh tế');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS17', 'Hệ thống thông tin kinh tế');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('lawS1', 'Luật');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('lawS2', 'Luật kinh tế');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('mediaS1', 'Báo chí truyền thông');
@@ -173,7 +173,7 @@ INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS3', 'Răng h
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS4', 'Y học cổ truyền');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS5', 'Điều dưỡng');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS6', 'Dược');
-INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('Med7', 'Phẫu thuật tạo hình và thẩm mỹ');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS7', 'Phẫu thuật tạo hình và thẩm mỹ');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS8', 'Thú Y');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('techS1', 'Công nghệ thông tin');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('techS2', 'Mạng máy tính và truyền thông dữ liệu');
@@ -272,6 +272,7 @@ INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang15', 'Kỹ năng ngh
 INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang16', 'Kỹ năng chăm sóc khách hàng');
 
 -- bang chung chi
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi0', 'Không có');
 INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi1', 'Chứng chỉ ngoại ngữ');
 INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi2', 'Chứng chỉ tin học văn phòng');
 INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi3', 'Chứng chỉ sơ cấp cứu');
