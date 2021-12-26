@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -56,7 +57,7 @@ public class page2 extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(430, 70));
+        setLocation(new java.awt.Point(430, 0));
 
         jLabel2.setBackground(new java.awt.Color(255, 204, 204));
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 30)); // NOI18N
@@ -79,10 +80,10 @@ public class page2 extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jLabel4.setText("Bạn có kĩ năng nào?");
 
-        tinhCach.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        tinhCach.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jScrollPane1.setViewportView(tinhCach);
 
-        kiNang.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        kiNang.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jScrollPane2.setViewportView(kiNang);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
@@ -112,7 +113,7 @@ public class page2 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(142, 142, 142)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                 .addGap(132, 132, 132))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -164,7 +165,7 @@ public class page2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -210,25 +211,29 @@ public class page2 extends javax.swing.JFrame {
         }
     }
     /*Hiển thị tính cách*/
-     public showTinhCach(){
+    public void showTinhCach(){
     dao = new DAO();
+        DefaultListModel<String> listTinhCach = new DefaultListModel<>();
         ResultSet rs = dao.gettinhCach();
         try {
             while(rs.next()){
-                tinhCach.addItem(rs.getString("tinhCach"));
+                listTinhCach.addElement(rs.getString("tinhcach"));
             }
+            tinhCach.setModel(listTinhCach);
         } catch (SQLException ex) {
             Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
     /*Hiển thị kĩ năng*/
-    public showKiNang(){
+    public void showKiNang(){
     dao = new DAO();
+        DefaultListModel<String> listKiNang = new DefaultListModel<>();
         ResultSet rs = dao.getkiNang();
         try {
             while(rs.next()){
-                kiNang.addItem(rs.getString("kiNang"));
+                listKiNang.addElement(rs.getString("kinang"));
             }
+            kiNang.setModel(listKiNang);
         } catch (SQLException ex) {
             Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
         }

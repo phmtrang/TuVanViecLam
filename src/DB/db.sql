@@ -105,6 +105,18 @@ CREATE TABLE `httt`.`ngoaiHinh` (
   `id` VARCHAR(55) NOT NULL,
   `ngoaiHinh` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));
+CREATE TABLE `httt`.`tinhcach` (
+  `id` VARCHAR(25) NOT NULL,
+  `tinhcach` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`));
+CREATE TABLE `httt`.`kinang` (
+  `id` VARCHAR(25) NOT NULL,
+  `kinang` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`));
+CREATE TABLE `httt`.`chungchi` (
+  `chungchi` VARCHAR(45) NULL,
+  `id` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`));
 -- nhap du lieu
 -- bang moitruonglamviec
 INSERT INTO `httt`.`moitruonglamviec` (`id`, `moiTruongLamViec`) VALUES ('moiTruongLamViec1', 'Trong nhà');
@@ -236,7 +248,7 @@ INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach28', 'Uyên b�
 INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach29', 'Thông minh');
 INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach30', 'Nhanh nhẹn');
 
---bang ki nang  
+-- bang ki nang  
 INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang1', 'Kỹ năng giải quyết vấn đề');
 INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang2', 'Kỹ năng phân tích đánh giá');
 INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang3', 'Kỹ năng giao tiếp');
@@ -254,7 +266,7 @@ INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang14', 'Kỹ năng s�
 INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang15', 'Kỹ năng nghiệp vụ');
 INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang16', 'Kỹ năng chăm sóc khách hàng');
 
---bang chung chi
+-- bang chung chi
 INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi1', 'Chứng chỉ ngoại ngữ');
 INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi2', 'Chứng chỉ tin học văn phòng');
 INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi3', 'Chứng chỉ sơ cấp cứu');
