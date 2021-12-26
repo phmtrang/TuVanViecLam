@@ -105,6 +105,18 @@ CREATE TABLE `httt`.`ngoaiHinh` (
   `id` VARCHAR(55) NOT NULL,
   `ngoaiHinh` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));
+CREATE TABLE `httt`.`tinhcach` (
+  `id` VARCHAR(25) NOT NULL,
+  `tinhcach` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`));
+CREATE TABLE `httt`.`kinang` (
+  `id` VARCHAR(25) NOT NULL,
+  `kinang` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`));
+CREATE TABLE `httt`.`chungchi` (
+  `chungchi` VARCHAR(45) NULL,
+  `id` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`));
 -- nhap du lieu
 -- bang moitruonglamviec
 INSERT INTO `httt`.`moitruonglamviec` (`id`, `moiTruongLamViec`) VALUES ('moiTruongLamViec1', 'Trong nhà');
@@ -203,4 +215,68 @@ INSERT INTO `httt`.`ngoaihinh` (`id`, `ngoaiHinh`) VALUES ('ngoaiHinh1', 'Bình 
 INSERT INTO `httt`.`ngoaihinh` (`id`, `ngoaiHinh`) VALUES ('ngoaiHinh2', 'Ưa nhìn');
 INSERT INTO `httt`.`ngoaihinh` (`id`, `ngoaiHinh`) VALUES ('ngoaiHinh3', 'Nổi bật');
 INSERT INTO `httt`.`ngoaihinh` (`id`, `ngoaiHinh`) VALUES ('ngoaiHinh4', 'Hình thể đẹp');
+
+-- bang tinh cach
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach1', 'Cẩn thận');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach2', 'Năng động');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach3', 'Sáng tạo');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach4', 'Tỉ mỉ');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach5', 'Nhạy bén');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach6', 'Hòa đồng');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach7', 'Chăm chỉ');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach8', 'Niềm nở');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach9', 'Ân cần');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach10', 'Nhiệt Huyết');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach11', 'Khách quan');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach12', 'Nhiệt tình');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach13', 'Kiên nhẫn');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach14', 'Kiên trì');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach15', 'Vui tính');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach16', 'Đĩnh đạc');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach17', 'Thân thiện');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach18', 'Hăng Hái');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach19', 'Lịch sự');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach20', 'Nghiêm túc');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach21', 'Khéo léo');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach22', 'Trách nhiệm');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach23', 'Linh hoạt');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach24', 'Nhạy cảm');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach25', 'Thận trọng');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach26', 'Nề nếp');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach27', 'Cần cù');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach28', 'Uyên bác');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach29', 'Thông minh');
+INSERT INTO `httt`.`tinhcach` (`id`, `tinhcach`) VALUES ('tinhCach30', 'Nhanh nhẹn');
+
+-- bang ki nang  
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang1', 'Kỹ năng giải quyết vấn đề');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang2', 'Kỹ năng phân tích đánh giá');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang3', 'Kỹ năng giao tiếp');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang4', 'Kỹ năng thuyết phục đàm phán');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang5', 'Kỹ năng làm việc nhóm');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang6', 'Kỹ năng viết lách');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang7', 'Kỹ năng quan sát phán đoán');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang8', 'Kỹ năng sáng tạo');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang9', 'Kỹ năng tổ chức công việc');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang10', 'Kỹ năng nói truyền cảm');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang11', 'Kỹ năng ghi nhớ');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang12', 'Kỹ năng quản lý thời gian');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang13', 'Kỹ năng giải thích truyền đạt vấn đề');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang14', 'Kỹ năng sử dụng công cụ kỹ thuật');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang15', 'Kỹ năng nghiệp vụ');
+INSERT INTO `httt`.`kinang` (`id`, `kinang`) VALUES ('kinang16', 'Kỹ năng chăm sóc khách hàng');
+
+-- bang chung chi
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi1', 'Chứng chỉ ngoại ngữ');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi2', 'Chứng chỉ tin học văn phòng');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi3', 'Chứng chỉ sơ cấp cứu');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi4', 'Chứng chỉ kế toán kiểm toán(CPA/ACCA/CMA)');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi5', 'CFA/CFP');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi6', 'Chứng chỉ quản trị rủi ro tài chính - FRM');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi7', 'Chứng chỉ nghiệp vụ bảo hiểm');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi8', 'Chứng chỉ hành nghề y');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi9', 'Chứng chỉ hành nghề Y chuyên khoa');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi10', 'Chứng chỉ hành nghề dược');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi11', 'Chứng chỉ đào tạo pha chế');
+INSERT INTO `httt`.`chungchi` (`id`, `chungchi`) VALUES ('chungchi12', 'Chứng chỉ chuyên môn kỹ thuật');
 

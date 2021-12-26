@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -55,7 +56,7 @@ public class page3 extends javax.swing.JFrame {
         chungChi = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(400, 120));
+        setLocation(new java.awt.Point(400, 70));
 
         jLabel2.setBackground(new java.awt.Color(255, 204, 204));
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 30)); // NOI18N
@@ -101,6 +102,7 @@ public class page3 extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jLabel5.setText("Bạn có chứng chỉ hành nghề nào sau đây ?");
 
+        chungChi.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jScrollPane1.setViewportView(chungChi);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,7 +137,7 @@ public class page3 extends javax.swing.JFrame {
                             .addComponent(tinhChat, 0, 289, Short.MAX_VALUE)
                             .addComponent(moiTruong, 0, 289, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +161,7 @@ public class page3 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -217,13 +219,15 @@ public class page3 extends javax.swing.JFrame {
         }
     }
     /*Hiển thị chứng chỉ*/
-    public showChungChi(){
+    public void showChungChi(){
     dao = new DAO();
+        DefaultListModel <String> listChungChi = new DefaultListModel<>();
         ResultSet rs = dao.getchungChi();
         try {
             while(rs.next()){
-                chungChi.addItem(rs.getString("chungChi"));
+                listChungChi.addElement(rs.getString("chungchi"));
             }
+            chungChi.setModel(listChungChi);
         } catch (SQLException ex) {
             Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
         }
