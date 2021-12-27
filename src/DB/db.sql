@@ -66,21 +66,10 @@ CREATE TABLE `httt`.`groupc` (
   `thoiGianLamViec` VARCHAR(255) NULL,
   `outPut` VARCHAR(255) NULL,
   PRIMARY KEY (`id`));
-
-CREATE TABLE `httt`.`groupf` (
+    
+  CREATE TABLE `httt`.`groupf` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `job1` VARCHAR(255) NULL,
-  `job2` VARCHAR(255) NULL,
-  `job3` VARCHAR(255) NULL,
-  `job4` VARCHAR(255) NULL,
-  `job5` VARCHAR(255) NULL,
-  `job6` VARCHAR(255) NULL,
-  `job7` VARCHAR(255) NULL,
-  `job8` VARCHAR(255) NULL,
-  `job9` VARCHAR(255) NULL,
-  `job10` VARCHAR(255) NULL,
-  `job11` VARCHAR(255) NULL,
-  `job12` VARCHAR(255) NULL,
+  `job` VARCHAR(255) NULL,
   `outPut` VARCHAR(255) NULL,
   PRIMARY KEY (`id`));
 
@@ -114,8 +103,13 @@ CREATE TABLE `httt`.`kinang` (
   `kinang` VARCHAR(255) NULL,
   PRIMARY KEY (`id`));
 CREATE TABLE `httt`.`chungchi` (
-  `chungchi` VARCHAR(45) NULL,
+  `id` VARCHAR(45) NOT NULL,
+  `chungchi` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`));
+CREATE TABLE `httt`.`output` (
   `id` VARCHAR(255) NOT NULL,
+  `job` VARCHAR(255) NOT NULL,
+  `moTa` TEXT NOT NULL,
   PRIMARY KEY (`id`));
 CREATE TABLE `httt`.`output` (
   `id` VARCHAR(255) NOT NULL,
