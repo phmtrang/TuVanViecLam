@@ -5,6 +5,12 @@
  */
 package DB;
 
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -254,6 +260,17 @@ public class DAO {
            sql = "INSERT INTO " +table+
                 "(chuyenNganh, tinhCach, chungChi, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('" 
                 +chuyenNganh+ "','"+tinhCach+"','"+chungChi+"','"+moiTruong+"','"+ngoaiHinh+"','"+kiNang+"','"+tinhChat+"','"+thoiGian+"','"+outPut+"');"; 
+        }
+        File file = new File("D://Code/BTL/HTTT/src/DB/db_Case.txt");  
+        try {
+            String query = "\n" + sql;
+            FileOutputStream fos = new FileOutputStream(file, true);
+            fos.write(query.getBytes(), 0, query.length());   
+            fos.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             Class.forName(JDBC_DRIVER);
