@@ -223,7 +223,7 @@ public class page2 extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(page2.class.getName()).log(Level.SEVERE, null, ex);
         }
-}
+    }
     /*Hiển thị kĩ năng*/
     public void showKiNang(){
     dao = new DAO();
