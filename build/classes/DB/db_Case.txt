@@ -1,0 +1,5 @@
+
+INSERT INTO groupa(chuyenNganh, chungChi, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('ecoS10','','','','','','','Agriculture');
+INSERT INTO groupa(chuyenNganh, chungChi, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('eco17','','','','','','','Agriculture');
+INSERT INTO groupa(chuyenNganh, tinhCach, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('eco17','tinhCach11','','','','','','Agriculture');
+INSERT INTO groupa(chuyenNganh, tinhCach, chungChi, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('eco17','tinhCach13','','','','','','','Agriculture');

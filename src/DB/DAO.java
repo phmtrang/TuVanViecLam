@@ -51,7 +51,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from chuyennganh;";
+            String sql = "select* from chuyennganh ORDER BY chuyenNganh ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
@@ -67,7 +67,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from hinhthuclamviec;";
+            String sql = "select* from hinhthuclamviec ORDER BY hinhThucLamViec ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
@@ -83,7 +83,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from moitruonglamviec;";
+            String sql = "select* from moitruonglamviec ORDER BY moiTruongLamViec ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
@@ -99,7 +99,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from ngoaihinh;";
+            String sql = "select* from ngoaihinh ORDER BY ngoaiHinh ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
@@ -115,7 +115,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from tinhchatcongviec;";
+            String sql = "select* from tinhchatcongviec ORDER BY tinhChatCongViec ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
@@ -131,7 +131,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from tinhcach;";
+            String sql = "select* from tinhcach ORDER BY tinhcach ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
@@ -147,7 +147,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from kinang;";
+            String sql = "select* from kinang ORDER BY kinang ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
@@ -162,7 +162,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from chungchi;";
+            String sql = "select* from chungchi ORDER BY chungchi ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
@@ -177,7 +177,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from output;";
+            String sql = "select* from output ORDER BY job ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;                 
         } catch (ClassNotFoundException ex) {
@@ -216,52 +216,13 @@ public class DAO {
             kiNang = kiNang.substring(0, kiNang.length()-2);
         }
         String sql = "";
-        if(chuyenNganh == ""){
-            sql = "INSERT INTO " +table+
-                "(tinhCach, chungChi, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('" 
-                +tinhCach+"','"+chungChi+"','"+moiTruong+"','"+ngoaiHinh+"','"+kiNang+"','"+tinhChat+"','"+thoiGian+"','"+outPut+"');";
-        }
-        else if(tinhCach == ""){
-            sql = "INSERT INTO " +table+
-                "(chuyenNganh, chungChi, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('" 
-                +chuyenNganh+"','"+chungChi+"','"+moiTruong+"','"+ngoaiHinh+"','"+kiNang+"','"+tinhChat+"','"+thoiGian+"','"+outPut+"');";
-        }
-        else if(chungChi == ""){
-            sql = "INSERT INTO " +table+
-                "(chuyenNganh, tinhCach, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('" 
-                +chuyenNganh+ "','"+tinhCach+"','"+moiTruong+"','"+ngoaiHinh+"','"+kiNang+"','"+tinhChat+"','"+thoiGian+"','"+outPut+"');";
-        }
-        else if(moiTruong == ""){
-            sql = "INSERT INTO " +table+
-                "(chuyenNganh, tinhCach, chungChi, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('" 
-                +chuyenNganh+ "','"+tinhCach+"','"+chungChi+"','"+ngoaiHinh+"','"+kiNang+"','"+tinhChat+"','"+thoiGian+"','"+outPut+"');";
-        }
-        else if(ngoaiHinh == ""){
-            sql = "INSERT INTO " +table+
-                "(chuyenNganh, tinhCach, chungChi, moiTruongLamViec, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('" 
-                +chuyenNganh+ "','"+tinhCach+"','"+chungChi+"','"+moiTruong+"','"+kiNang+"','"+tinhChat+"','"+thoiGian+"','"+outPut+"');";
-        }
-        else if(kiNang == ""){
-            sql = "INSERT INTO " +table+
-                "(chuyenNganh, tinhCach, chungChi, moiTruongLamViec, ngoaiHinh, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('" 
-                +chuyenNganh+ "','"+tinhCach+"','"+chungChi+"','"+moiTruong+"','"+ngoaiHinh+"','"+tinhChat+"','"+thoiGian+"','"+outPut+"');";
-        }
-        else if(tinhChat == ""){
-            sql = "INSERT INTO " +table+
-                "(chuyenNganh, tinhCach, chungChi, moiTruongLamViec, ngoaiHinh, kiNang,thoiGianLamViec, outPut) VALUE ('" 
-                +chuyenNganh+ "','"+tinhCach+"','"+chungChi+"','"+moiTruong+"','"+ngoaiHinh+"','"+kiNang+"','"+thoiGian+"','"+outPut+"');";
-        }
-        else if(thoiGian == ""){
-            sql = "INSERT INTO " +table+
-                "(chuyenNganh, tinhCach, chungChi, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec, outPut) VALUE ('" 
-                +chuyenNganh+ "','"+tinhCach+"','"+chungChi+"','"+moiTruong+"','"+ngoaiHinh+"','"+kiNang+"','"+tinhChat+"','"+outPut+"');";
-        }
-        else{
+        
+        
            sql = "INSERT INTO " +table+
                 "(chuyenNganh, tinhCach, chungChi, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('" 
                 +chuyenNganh+ "','"+tinhCach+"','"+chungChi+"','"+moiTruong+"','"+ngoaiHinh+"','"+kiNang+"','"+tinhChat+"','"+thoiGian+"','"+outPut+"');"; 
-        }
-        File file = new File("D://Code/BTL/HTTT/src/DB/db_Case.txt");  
+        
+        File file = new File("C:/Users/Administrator/Documents/GitHub/TuVanViecLam/src/DB/db_Case.txt");  
         try {
             String query = "\n" + sql;
             FileOutputStream fos = new FileOutputStream(file, true);
