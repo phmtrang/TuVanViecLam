@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -196,6 +198,7 @@ public class Admin extends javax.swing.JFrame {
         chuyenNganh.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
 
         thoiGian.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        thoiGian.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         tinhCach.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jScrollPane3.setViewportView(tinhCach);
@@ -204,13 +207,16 @@ public class Admin extends javax.swing.JFrame {
         jScrollPane4.setViewportView(kiNang);
 
         tinhChatCongViec.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        tinhChatCongViec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         moiTruongLamViec.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        moiTruongLamViec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         chungChi.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jScrollPane5.setViewportView(chungChi);
 
         ngoaiHinh.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        ngoaiHinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jLabel4.setText("Trình độ");
@@ -257,10 +263,9 @@ public class Admin extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -280,7 +285,7 @@ public class Admin extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(trinhDo, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,30 +360,34 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
             .addGroup(layout.createSequentialGroup()
-                .addGap(271, 271, 271)
+                .addGap(306, 306, 306)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(thoat)
-                .addGap(60, 60, 60)
-                .addComponent(luu, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 861, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(thoat)
+                        .addGap(42, 42, 42)
+                        .addComponent(luu, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(luu)
                     .addComponent(thoat))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -449,7 +458,12 @@ public class Admin extends javax.swing.JFrame {
             listChungChi = chungChi.getSelectedValuesList();               
         }
         dao = new DAO();
-        dao.createCase(table, cnganh, listTinhCach, listChungChi, moiTruong, nHinh, listKiNang, tinhChat, tGian, out);  
+        dao.createCase(table, cnganh, listTinhCach, listChungChi, moiTruong, nHinh, listKiNang, tinhChat, tGian, out); 
+        JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+        JOptionPane.showMessageDialog(frame,
+                "Lưu thành công",
+                "Title Example",
+                JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_luuActionPerformed
 
     /**

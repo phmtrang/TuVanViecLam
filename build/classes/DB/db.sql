@@ -111,6 +111,11 @@ CREATE TABLE `httt`.`output` (
   `job` VARCHAR(255) NOT NULL,
   `moTa` TEXT NOT NULL,
   PRIMARY KEY (`id`));
+CREATE TABLE `httt`.`output` (
+  `id` VARCHAR(255) NOT NULL,
+  `job` VARCHAR(255) NOT NULL,
+  `moTa` TEXT NOT NULL,
+  PRIMARY KEY (`id`));
 -- nhap du lieu
 -- bang moitruonglamviec
 INSERT INTO `httt`.`moitruonglamviec` (`id`, `moiTruongLamViec`) VALUES ('moiTruongLamViec1', 'Trong nhà');
@@ -125,7 +130,7 @@ INSERT INTO `httt`.`hinhthuclamviec` (`id`, `hinhThucLamViec`) VALUES ('thoiGian
 INSERT INTO `httt`.`hinhthuclamviec` (`id`, `hinhThucLamViec`) VALUES ('thoiGian2', 'Toàn thời gian');
 INSERT INTO `httt`.`hinhthuclamviec` (`id`, `hinhThucLamViec`) VALUES ('thoiGian3', 'Không cố định');
 -- bang chuyennganh
-INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('emptyS', 'Không có');
+
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS2', 'Tài chính, ngân hàng');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS3', 'Kế toán, kiểm toán');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS4', 'Kinh tế học');
@@ -203,6 +208,8 @@ INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS13', 'Phòng 
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS14', 'Điều tra hình sự');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS15', 'Trinh sát');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS16', 'Thi hành án và hỗ trợ tư pháp');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('khongCo', 'Không có');
+
 
 -- bang ngoai hinh
 INSERT INTO `httt`.`ngoaihinh` (`id`, `ngoaiHinh`) VALUES ('ngoaiHinh1', 'Bình thường');
