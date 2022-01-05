@@ -222,7 +222,7 @@ public class DAO {
                 "(chuyenNganh, tinhCach, chungChi, moiTruongLamViec, ngoaiHinh, kiNang, tinhChatCongViec,thoiGianLamViec, outPut) VALUE ('" 
                 +chuyenNganh+ "','"+tinhCach+"','"+chungChi+"','"+moiTruong+"','"+ngoaiHinh+"','"+kiNang+"','"+tinhChat+"','"+thoiGian+"','"+outPut+"');"; 
         
-        File file = new File("C:/Users/Administrator/Documents/GitHub/TuVanViecLam/src/DB/db_Case.txt");  
+        File file = new File("D://Code/BTL/HTTT/src/DB/db_Case.txt");  
         try {
             String query = "\n" + sql;
             FileOutputStream fos = new FileOutputStream(file, true);
