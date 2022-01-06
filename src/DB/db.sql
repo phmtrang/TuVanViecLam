@@ -146,7 +146,7 @@ INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS13', 'Thị 
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS14', 'Quản lý tài chính công');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS15', 'Thương mại điện thử');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS16', 'Quản lý tài chính doanh nghiệp');
-INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('eco17', 'Hệ thống thông tin kinh tế');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('ecoS17', 'Hệ thống thông tin kinh tế');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('lawS1', 'Luật');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('lawS2', 'Luật kinh tế');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('mediaS1', 'Báo chí truyền thông');
@@ -167,7 +167,7 @@ INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS3', 'Răng h
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS4', 'Y học cổ truyền');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS5', 'Điều dưỡng');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS6', 'Dược');
-INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('Med7', 'Phẫu thuật tạo hình và thẩm mỹ');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS7', 'Phẫu thuật tạo hình và thẩm mỹ');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('MedS8', 'Thú Y');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('techS1', 'Công nghệ thông tin');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('techS2', 'Mạng máy tính và truyền thông dữ liệu');
@@ -208,6 +208,23 @@ INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS13', 'Phòng 
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS14', 'Điều tra hình sự');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS15', 'Trinh sát');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS16', 'Thi hành án và hỗ trợ tư pháp');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS17', 'Thiết kế thời trang');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS18', 'Kinh tế chính trị');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS19', 'Chính trị học');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS20', 'Phòng không - không quân');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS21', 'Biên phòng');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS22', 'Lục quân');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS23', 'Hải quân');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS24', 'Địa chất học');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS25', 'Địa lý học');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS26', 'Hải dương học');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS27', 'Thực vật học');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS28', 'Sinh vật học');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS29', 'Sinh thái học');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS30', 'Khí tượng thủy văn');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS31','Đa phương tiện');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS32', 'Diễn viên múa');
+INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('soS33', 'Diễn viên sân khấu kịch hát');
 INSERT INTO `httt`.`chuyennganh` (`id`, `chuyenNganh`) VALUES ('khongCo', 'Không có');
 
 
