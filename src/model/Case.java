@@ -97,6 +97,8 @@ public class Case {
         this.thoiGianLamViec = thoiGianLamViec;
     }
     
-    
+    public String toString(){
+        return chuyenNganh +"."+ chungChi +"."+ kiNang +"."+moiTruongLamViec +"."+ngoaiHinh + "."+thoiGianLamViec + "."+tinhCach +"."+tinhChatCongViec;
+    }
     
 }

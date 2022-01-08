@@ -8,6 +8,7 @@ package view;
 import DB.DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -184,9 +185,23 @@ public class page3 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        lValue = new lackValue(cs);
-        lValue.setVisible(true);
-        this.setVisible(false);
+        dao = new DAO();
+        cs.setTinhChatCongViec(dao.getIDAttribute(tinhChat.getSelectedItem().toString(), "tinhChatCongViec", "tinhChatCongViec"));
+        cs.setNgoaiHinh(dao.getIDAttribute(ngoaiHinh.getSelectedItem().toString(),"ngoaiHinh", "ngoaiHinh"));
+        cs.setMoiTruongLamViec(dao.getIDAttribute(moiTruong.getSelectedItem().toString(), "moiTruongLamViec", "moiTruongLamViec"));
+        List <String> listChungChi = null;
+        if(chungChi.getSelectedIndex() != -1){
+            listChungChi = chungChi.getSelectedValuesList();
+        }
+        String cc ="";
+        if(listChungChi != null){
+            for(String s: listChungChi){
+                cc += dao.getIDAttribute(s, "chungChi", "chungChi");
+                cc += ", ";
+            }
+            cc = cc.substring(0, cc.length()-2);
+        }
+        cs.setChungChi(cc);    
     }//GEN-LAST:event_jButton1ActionPerformed
     /*Hiển thị tính chất công việc*/
     public void showTinhChatCongViec(){
