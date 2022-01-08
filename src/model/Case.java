@@ -64,6 +64,38 @@ public class Case {
     public String getTinhChatCongViec() {
         return tinhChatCongViec;
     }
+
+    public void setChuyenNganh(String chuyenNganh) {
+        this.chuyenNganh = chuyenNganh;
+    }
+
+    public void setTinhCach(String tinhCach) {
+        this.tinhCach = tinhCach;
+    }
+
+    public void setChungChi(String chungChi) {
+        this.chungChi = chungChi;
+    }
+
+    public void setMoiTruongLamViec(String moiTruongLamViec) {
+        this.moiTruongLamViec = moiTruongLamViec;
+    }
+
+    public void setNgoaiHinh(String ngoaiHinh) {
+        this.ngoaiHinh = ngoaiHinh;
+    }
+
+    public void setKiNang(String kiNang) {
+        this.kiNang = kiNang;
+    }
+
+    public void setTinhChatCongViec(String tinhChatCongViec) {
+        this.tinhChatCongViec = tinhChatCongViec;
+    }
+
+    public void setThoiGianLamViec(String thoiGianLamViec) {
+        this.thoiGianLamViec = thoiGianLamViec;
+    }
     
     
     
