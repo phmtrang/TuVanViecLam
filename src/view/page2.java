@@ -8,6 +8,7 @@ package view;
 import DB.DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -188,9 +189,35 @@ public class page2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cs.setChuyenNganh(chuyenNganh.getSelectedItem().toString());
-        cs.setThoiGianLamViec(thoiGian.getSelectedItem().toString());
-        
+        dao = new DAO();
+        cs.setChuyenNganh(dao.getIDAttribute(chuyenNganh.getSelectedItem().toString(), "chuyennganh", "chuyenNganh"));
+        cs.setThoiGianLamViec(dao.getIDAttribute(thoiGian.getSelectedItem().toString(), "hinhthuclamviec", "hinhThucLamViec"));
+        List <String> listTinhCach = null;
+        if(tinhCach.getSelectedIndex() != -1){
+            listTinhCach = tinhCach.getSelectedValuesList();
+        }
+        String tc ="";
+        if(listTinhCach != null){
+            for(String s: listTinhCach){
+                tc += dao.getIDAttribute(s, "tinhcach", "tinhcach");
+                tc += ", ";
+            }
+            tc = tc.substring(0, tc.length()-2);
+        }
+        cs.setTinhCach(tc);
+        List <String> listKiNang = null;
+        if(kiNang.getSelectedIndex() != -1){
+            listKiNang = kiNang.getSelectedValuesList();
+        }
+        String kn ="";
+        if(listKiNang != null){
+            for(String s: listKiNang){
+                kn += dao.getIDAttribute(s, "kinang", "kinang");
+                kn += ", ";
+            }
+            kn = kn.substring(0, kn.length()-2);
+        }
+        cs.setKiNang(kn);
         p3 = new page3(cs);
         p3.setVisible(true);
         this.setVisible(false);
