@@ -5,6 +5,11 @@
  */
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.AbstractButton;
+import model.Case;
+
 /**
  *
  * @author PhamTrang
@@ -15,8 +20,18 @@ public class page1 extends javax.swing.JFrame {
      * Creates new form page1
      */
     private page2 p2;
-    public page1() {
+    private Case cs;
+    private static String group;
+    public page1(Case cs) {
         initComponents();
+        this.cs= cs;
+        
+        jButton1.setVisible(false);
+        jRadioButton1.addActionListener(new btngrouplis());
+        jRadioButton2.addActionListener(new btngrouplis());
+        jRadioButton3.addActionListener(new btngrouplis());
+        jRadioButton4.addActionListener(new btngrouplis());
+        jRadioButton5.addActionListener(new btngrouplis());
     }
 
     /**
@@ -61,11 +76,6 @@ public class page1 extends javax.swing.JFrame {
         btngroup.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jRadioButton1.setText("Dưới THPT");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
 
         btngroup.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
@@ -82,11 +92,6 @@ public class page1 extends javax.swing.JFrame {
         btngroup.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jRadioButton5.setText("Đại học");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
-            }
-        });
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/assets/login-rounded-right.png"))); // NOI18N
@@ -155,54 +160,37 @@ public class page1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        p2 = new page2();
+        p2 = new page2(cs);
         p2.setVisible(true);
         this.setVisible(false);
+        if(jRadioButton1.isSelected()){
+            group = "groupa";
+        }else if(jRadioButton2.isSelected()){
+            group ="groupb";
+        }else if(jRadioButton3.isSelected()){
+            group ="groupc";
+        }
+        else if(jRadioButton4.isSelected()){
+            group = "groupd";
+            
+        }else{
+            group ="groupe";
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(page1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(page1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(page1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(page1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    class btngrouplis implements ActionListener{
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new page1().setVisible(true);
-            }
-        });
-    }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            jButton1.setVisible(true);
+                        
+        }
+    
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btngroup;

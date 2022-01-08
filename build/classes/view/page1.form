@@ -146,9 +146,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="D&#x1b0;&#x1edb;i THPT"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButton2">
       <Properties>
@@ -193,9 +190,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#x110;&#x1ea1;i h&#x1ecd;c"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton5ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
