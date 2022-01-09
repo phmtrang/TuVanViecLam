@@ -21,7 +21,7 @@ public class page1 extends javax.swing.JFrame {
      */
     private page2 p2;
     private Case cs;
-    private static String group;
+    public static String group;
     public page1(Case cs) {
         initComponents();
         this.cs= cs;
