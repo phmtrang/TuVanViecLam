@@ -5,9 +5,12 @@
  */
 package view;
 
+import Control.Handle;
 import DB.DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +26,7 @@ public class page3 extends javax.swing.JFrame {
     /**
      * Creates new form page3
      */
+    private Handle handle;
     private page2 p2;
     private lackValue lValue;
     private DAO dao;
@@ -201,7 +205,37 @@ public class page3 extends javax.swing.JFrame {
             }
             cc = cc.substring(0, cc.length()-2);
         }
-        cs.setChungChi(cc);    
+        cs.setChungChi(cc); 
+        handle = new Handle();
+        float[] output = new float[200];
+        output = handle.tinhTuongDong(cs);
+        float[] tmp = new float[200];
+        for (int i = 0; i < output.length; i++) {
+            tmp[i] = output[i];
+            
+        }
+        Arrays.sort(tmp);
+        List <String> kq = new ArrayList<>();
+        for (int i = 0; i < tmp.length; i++) {
+            if(output[i] == tmp[tmp.length-1]){
+                if(!kq.contains(dao.searchOutput(page1.group, Integer.toString(i))))
+                kq.add(dao.searchOutput(page1.group, Integer.toString(i)));
+            }   
+        }
+        String nghe;
+        String moTa;
+        ResultSet rs;
+        for (String string : kq) {
+            rs = dao.searchJob(string);
+            try {
+                if(rs.next()){
+                    System.out.println(rs.getString("job"));
+                    System.out.println(rs.getString("moTa"));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(page3.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }   
     }//GEN-LAST:event_jButton1ActionPerformed
     /*Hiển thị tính chất công việc*/
     public void showTinhChatCongViec(){

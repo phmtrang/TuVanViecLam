@@ -262,4 +262,58 @@ public class DAO {
         }
         return result;
     }
+    /*Search Case*/
+    public ResultSet searchCase(String in, String tableName, String colName){
+        try {
+            Class.forName(JDBC_DRIVER);
+            Statement stm = conn.createStatement();
+            String sql = "select * from "+ tableName;   
+            ResultSet rs = stm.executeQuery(sql);
+            return rs;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+        
+    }
+    /*Search output*/
+    public String searchOutput(String tableName, String id){
+        try {
+            Class.forName(JDBC_DRIVER);
+            Statement stm = conn.createStatement();
+            String sql = "select * from "+tableName+" where id ='"+id+"';";
+            ResultSet rs = stm.executeQuery(sql);
+            String outPut = "";
+            if(rs.next()){
+                outPut = rs.getString("outPut");   
+            }
+            return outPut;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public ResultSet searchJob(String outPut){
+        try {
+            Class.forName(JDBC_DRIVER);
+            Statement stm = conn.createStatement();
+            ResultSet rs = null;
+            String sql = null;
+            if(outPut != ""){
+                sql = "select * from output where id = '"+outPut+"';";
+                rs = stm.executeQuery(sql);
+            }
+            return rs ;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
 }
