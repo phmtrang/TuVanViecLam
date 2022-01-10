@@ -51,7 +51,7 @@ public class DAO {
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();
-            String sql = "select* from chuyennganh ORDER BY chuyenNganh ASC;";
+            String sql = "select* from chuyennganh where chuyenNganh != 'Không có' ORDER BY chuyenNganh ASC;";
             ResultSet rs = stm.executeQuery(sql);
             return rs;
         } catch (SQLException ex) {
@@ -263,7 +263,7 @@ public class DAO {
         return result;
     }
     /*Search Case*/
-    public ResultSet searchCase(String in, String tableName, String colName){
+    public ResultSet searchCase(String tableName){
         try {
             Class.forName(JDBC_DRIVER);
             Statement stm = conn.createStatement();

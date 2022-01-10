@@ -15,8 +15,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import main.run;
 import model.Case;
 import static view.page2.check;
+import view.page2;
 
 /**
  *
@@ -28,8 +30,6 @@ public class page3 extends javax.swing.JFrame {
      * Creates new form page3
      */
     private Handle handle;
-    private page2 p2;
-    private lackValue lValue;
     private DAO dao;
     private Case cs;
     public static List <String> kq = new ArrayList<>();
@@ -185,9 +185,9 @@ public class page3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        p2 = new page2(cs);
-        p2.setVisible(true);
-        this.setVisible(false);
+
+        run.p2.setVisible(true);
+        run.p3.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -217,24 +217,32 @@ public class page3 extends javax.swing.JFrame {
             
         }
         Arrays.sort(tmp);
-        
         for (int i = 0; i < tmp.length; i++) {
             if(output[i] == tmp[tmp.length-1]){
-                if(!kq.contains(dao.searchOutput(page1.group, Integer.toString(i))))
-                kq.add(dao.searchOutput(page1.group, Integer.toString(i)));
+                if(!kq.contains(dao.searchOutput(run.p1.group, Integer.toString(i))))
+                kq.add(dao.searchOutput(run.p1.group, Integer.toString(i)));
             }   
         }
-        
-        
-        if (page2.check == true) {
-            lackValue lv = new lackValue(cs);
-            lv.setVisible(true);
-
+        if(tinhChat.getSelectedIndex() == 0 || moiTruong.getSelectedIndex() == 0 || ngoaiHinh.getSelectedIndex() == 0 || chungChi.getSelectedIndex() == -1){
+            run.p2.checkNgoaiLe = true;
+        }
+        System.out.println(kq);
+        if(kq.size() >= 4 && run.p2.checkNgoaiLe == true){
+            run.lack.setVisible(true);
+            run.p3.setVisible(false);
+            lackValue l = new lackValue(cs);
+            l.ngoaiLe();
+        }
+        if (run.p2.check == true) {
+            run.lack.setVisible(true);
+            run.p3.setVisible(false);
+            lackValue l = new lackValue(cs);
+            l.binhThuong();
         }
         else{
-            result r = new result(cs);
-            r.setVisible(true);
-            this.setVisible(false); 
+            run.rs.setVisible(true);
+            run.p3.setVisible(false); 
+            run.rs.hienThi();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     /*Hiển thị tính chất công việc*/

@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
+import main.run;
 import model.Case;
 
 /**
@@ -29,6 +30,7 @@ public class page2 extends javax.swing.JFrame {
     private DAO dao;
     private Case cs;
     public static boolean check= false;
+    public static boolean checkNgoaiLe = false;
     public page2(Case cs) {
         initComponents();
         showChuyenNganh();
@@ -78,6 +80,7 @@ public class page2 extends javax.swing.JFrame {
         jLabel1.setText("Bạn học chuyên ngành gì?");
 
         chuyenNganh.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        chuyenNganh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Không có" }));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jLabel3.setText("Bạn là người như thế nào?");
@@ -173,7 +176,7 @@ public class page2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,9 +187,8 @@ public class page2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        p1 = new page1(cs);
-        p1.setVisible(true);
-        this.setVisible(false);
+        run.p1.setVisible(true);
+        run.p2.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -219,14 +221,15 @@ public class page2 extends javax.swing.JFrame {
             kn = kn.substring(0, kn.length()-2);
         }
         cs.setKiNang(kn);
-        if(chuyenNganh.getSelectedIndex()== -1 || thoiGian.getSelectedIndex() == -1 || tinhCach.getSelectedIndex()== -1 || kiNang.getSelectedIndex()==-1){
+        check = false;
+        checkNgoaiLe = false;
+        if(thoiGian.getSelectedIndex() == 0 || tinhCach.getSelectedIndex()== -1 || kiNang.getSelectedIndex()==-1){
             check =true;
+            checkNgoaiLe = true;
         }
         
-        
-            p3 = new page3(cs);
-            p3.setVisible(true);
-            this.setVisible(false);
+            run.p3.setVisible(true);
+            run.p2.setVisible(false);
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

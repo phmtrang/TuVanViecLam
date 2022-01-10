@@ -5,6 +5,15 @@
  */
 package view;
 
+import Control.Handle;
+import DB.DAO;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import main.run;
 import model.Case;
 
 /**
@@ -19,6 +28,7 @@ public class lackValue extends javax.swing.JFrame {
     private page2 p2;
     private result r;
     private Case cs;
+    public static List<String> kqNhom = new ArrayList<>();
     public lackValue(Case cs) {
         initComponents();
         this.cs= cs;
@@ -50,8 +60,8 @@ public class lackValue extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Kết quả hệ thống trả về có thể không chính xác do bạn không chọn\ncác mục như: Chuyên ngành, tính cách, kỹ năng, thời gian làm việc.\nBạn có muốn cung cấp thêm những thông tin này không?");
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -112,19 +122,61 @@ public class lackValue extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        p2 = new page2(cs);
-        p2.setVisible(true);
-        this.setVisible(false);
+        run.p2.setVisible(true);
+        run.lack.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        r = new result(cs);
-        r.setVisible(true);
-        this.setVisible(false);
-        
+        run.rs.setVisible(true);
+        run.lack.setVisible(false);
+        if(run.p3.kq.size() >= 4){
+            run.rs.hienThiKQNgoaiLe();
+        }
+        else{
+            run.rs.hienThi();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    public void binhThuong(){
+        jTextArea1.setText("Kết quả hệ thống trả về có thể không chính xác do bạn không chọn các mục như: tính cách, kỹ năng, kiểu công việc. Bạn có muốn cung cấp thêm những thông tin này không?");
+    }
+    public void ngoaiLe(){
+        jTextArea1.setText("Bạn hãy điền thêm các thông tin đã bỏ trống");
+        String stringKQ="";
+        for (String s : run.p3.kq) {
+            stringKQ += s;
+            stringKQ += ", ";
+        }
+        stringKQ = stringKQ.substring(0, stringKQ.length()-2);
+        DAO dao = new DAO();
+        Handle handle = new Handle();
+        ResultSet rs = dao.searchCase("groupf");
+        float [] kqNgoaiLe = new float[16];
+        try {
+            while (rs.next())
+            {
+                try {
+                    String col = rs.getString("job");
+                    kqNgoaiLe[Integer.parseInt(rs.getString("id"))] = (float) handle.soKhop(col,stringKQ, 6)/6;
+                } catch (SQLException ex) {
+                    Logger.getLogger(lackValue.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(lackValue.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        float max = 0;
+        for (int i = 0; i < kqNgoaiLe.length; i++) {
+            if(kqNgoaiLe[i] > max){
+                max = kqNgoaiLe[i];
+            }     
+        }
+        for (int i = 0; i < kqNgoaiLe.length; i++) {
+           if(kqNgoaiLe[i] == max){ 
+               kqNhom.add(dao.searchOutput("groupf", Integer.toString(i)));
+           }     
+        }
+    }
     /**
      * @param args the command line arguments
      */

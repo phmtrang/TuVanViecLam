@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Case;
 import view.page1;
+import main.run;
 
 /**
  *
@@ -31,7 +32,7 @@ public class Handle {
         try {
             this.cs = cs;
             dao = new DAO();
-            ResultSet rs = dao.searchCase(cs.getChuyenNganh(), page1.group, "chuyenNganh");
+            ResultSet rs = dao.searchCase(run.p1.group);
             int sum = 0;
             System.out.println(cs.toString());
             while (rs.next()) {

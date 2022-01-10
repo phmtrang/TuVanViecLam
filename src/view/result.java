@@ -10,8 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import main.run;
 import model.Case;
-import static view.page3.kq;
+import view.page3;
 
 /**
  *
@@ -22,21 +23,20 @@ public class result extends javax.swing.JFrame {
     /**
      * Creates new form result
      */
-    private page3 p3;
     private Case cs;
     private DAO dao;
     public result(Case cs) {
         initComponents();
         jTextArea2.setText("");
-        hienThi();
         this.cs =cs;
     }
     public void hienThi(){
+        jTextArea2.setText("");
         ResultSet rs;
         String nghe;
         String moTa;
         dao = new DAO();
-        for (String string : page3.kq) {
+        for (String string : run.p3.kq) {
             rs = dao.searchJob(string);
             try {
                 if(rs.next()){
@@ -49,11 +49,29 @@ public class result extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(page3.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }  
-        
-        
+        }      
     }
-
+    public void hienThiKQNgoaiLe(){
+        jTextArea2.setText("");
+        ResultSet rs;
+        String nghe;
+        String moTa;
+        dao = new DAO();
+        for (String string : run.lack.kqNhom) {
+            rs = dao.searchJob(string);
+            try {
+                if(rs.next()){
+                    nghe= rs.getString("job");
+                    moTa = rs.getString("moTa");
+                    jTextArea2.append(nghe+ ": ");
+                    jTextArea2.append(moTa);
+                    jTextArea2.append("\n");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(page3.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }     
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,12 +114,18 @@ public class result extends javax.swing.JFrame {
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/assets/icons8-delete-30.png"))); // NOI18N
         jButton1.setText("Kết thúc");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,10 +174,16 @@ public class result extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        p3 = new page3(cs);
-        p3.setVisible(true);
-        this.setVisible(false);
+
+        run.p2.setVisible(true);
+        run.rs.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        run r = new run();
+        r.close();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

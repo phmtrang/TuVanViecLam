@@ -8,6 +8,7 @@ package view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.AbstractButton;
+import main.run;
 import model.Case;
 
 /**
@@ -161,9 +162,9 @@ public class page1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        p2 = new page2(cs);
-        p2.setVisible(true);
-        this.setVisible(false);
+
+        run.p2.setVisible(true);
+        run.p1.setVisible(false);
         if(jRadioButton1.isSelected()){
             group = "groupa";
         }else if(jRadioButton2.isSelected()){
