@@ -47,7 +47,7 @@ public class result extends javax.swing.JFrame {
                     moTa = rs.getString("moTa");
                     jTextArea2.append(nghe+ ": ");
                     jTextArea2.append(moTa);
-                    jTextArea2.append("\n");
+                    jTextArea2.append("\n\n");
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(page3.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,17 +62,21 @@ public class result extends javax.swing.JFrame {
         List<String> kqNhom = new ArrayList<>();// nhom id cua case nhom f co do tuong dong lon nhat
         Handle hd = new Handle();
         kqNhom = hd.handleNgoaile();
+        System.out.println(kqNhom);
         dao = new DAO();
         // tung case in ra nghe va mo ta
         for (String string : kqNhom) {
             rs = dao.searchJob(string);
+            System.out.println(string);
             try {
                 if(rs.next()){
                     nghe= rs.getString("job");
+                    System.out.println(nghe);
                     moTa = rs.getString("moTa");
+                    System.out.println(moTa);
                     jTextArea2.append(nghe+ ": ");
                     jTextArea2.append(moTa);
-                    jTextArea2.append("\n");
+                    jTextArea2.append("\n\n");
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(page3.class.getName()).log(Level.SEVERE, null, ex);
@@ -181,7 +185,7 @@ public class result extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        
         run.p2.setVisible(true);
         run.rs.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

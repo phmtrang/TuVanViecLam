@@ -221,6 +221,7 @@ public class page3 extends javax.swing.JFrame {
         //sap xep mang de tim gia tri tuong dong lon nhat
         Arrays.sort(tmp);
         // them id output cua gia tri tuong dong lon nhat vao listkq
+        kq.clear();
         for (int i = 0; i < tmp.length; i++) {
             if(output[i] == tmp[tmp.length-1]){
                 if(!kq.contains(dao.searchOutput(run.p1.group, Integer.toString(i))))
@@ -236,19 +237,19 @@ public class page3 extends javax.swing.JFrame {
         if(kq.size() >= 4 && run.p2.checkNgoaiLe == true){
             run.lack.setVisible(true);
             run.p3.setVisible(false);
-            lackValue l = new lackValue(cs);
-            l.ngoaiLe();
+            run.lack.ngoaiLe();
         }
         // neu nguoi dung chon du va ra >4 kq
         else if(kq.size()>=4 && run.p2.checkNgoaiLe == false){
+            run.rs.setVisible(true);
+            run.p3.setVisible(false);
             run.rs.hienThiKQNgoaiLe();
         }
-        //neu nguoi dung nhap thieu tinh cach, ky nang, thoi gian
+        //neu nguoi dung nhap thieu tinh cach, ky nang, thoi gian nhg so kq chua >4
         else if (run.p2.check == true) {
             run.lack.setVisible(true);
             run.p3.setVisible(false);
-            lackValue l = new lackValue(cs);
-            l.ngoaiLe();
+            run.lack.binhThuong();
             
         }
         else{// neu ng dung nhap du tat ca
