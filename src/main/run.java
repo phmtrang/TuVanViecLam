@@ -6,7 +6,11 @@
 package main;
 
 import model.Case;
+import view.lackValue;
 import view.page1;
+import view.page2;
+import view.page3;
+import view.result;
 
 /**
  *
@@ -17,11 +21,25 @@ public class run {
     /**
      * @param args the command line arguments
      */
+    public static Case cs = new Case();
+    public static page1 p1 = new page1(cs);
+    public static page2 p2 = new page2(cs);
+    public static page3 p3 = new page3(cs);
+    public run() {
+    }
+    public static lackValue lack = new lackValue(cs);
+    public static result rs = new result(cs);
     public static void main(String[] args) {
         // TODO code application logic here
-         page1 p = new page1(new Case());
-         p.setVisible(true);
+         p1.setVisible(true);
          
+    }
+    public void close(){
+        p1.dispose();
+        p2.dispose();
+        p3.dispose();
+        lack.dispose();
+        rs.dispose();
     }
     
 }
