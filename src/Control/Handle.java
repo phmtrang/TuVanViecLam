@@ -24,6 +24,9 @@ public class Handle {
 
     private DAO dao;
     private Case cs;
+
+    public Handle() {
+    }
     
     // Ham nay de tinh do tuong dong
     public float[] tinhTuongDong(Case cs) {
@@ -42,7 +45,7 @@ public class Handle {
                  */
                 sum = 0;
                 m=0;
-                if (cs.getChuyenNganh() != "") {
+                if (cs.getChuyenNganh() != "" && rs.getString("chuyenNganh") != null) {
                     if (rs.getString("chuyenNganh").equals(cs.getChuyenNganh())) {
                         sum += 6 * 1;
                     }
@@ -56,7 +59,7 @@ public class Handle {
                     }
                     m += 1;
                 }
-                if (cs.getThoiGianLamViec() != "") {
+                if (cs.getThoiGianLamViec() != "" && rs.getString("thoiGianLamViec") != null) {
                     if (rs.getString("thoiGianLamViec").equals(cs.getThoiGianLamViec())) {
                         sum += 4 * 1;
                     } else {
@@ -81,17 +84,17 @@ public class Handle {
                     m+=1;
                 }
                 /*xu li tinh cach*/
-                if (cs.getTinhCach() != "") {
+                if (cs.getTinhCach() != "" && rs.getString("tinhCach") != null) {
                     sum += soKhop(rs.getString("tinhCach"), cs.getTinhCach(),4);
                     m+=4;
                 }
                 /*Xu li ki nang*/
-                if (cs.getKiNang() != "") {
+                if (cs.getKiNang() != "" && rs.getString("kiNang") != null) {
                     sum += soKhop(rs.getString("kiNang"), cs.getKiNang(), 4);
                     m+=4;
                 }
                 /*Xu li chung chi*/
-                if (cs.getChungChi() != "") {
+                if (cs.getChungChi() != "" && rs.getString("chungchi") != null) {
                     sum += soKhop(rs.getString("chungChi"), cs.getChungChi(), 2);
                     m+=2;
                 }
