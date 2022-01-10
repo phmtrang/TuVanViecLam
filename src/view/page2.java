@@ -28,6 +28,7 @@ public class page2 extends javax.swing.JFrame {
     private page3 p3;
     private DAO dao;
     private Case cs;
+    public static boolean check= false;
     public page2(Case cs) {
         initComponents();
         showChuyenNganh();
@@ -218,9 +219,16 @@ public class page2 extends javax.swing.JFrame {
             kn = kn.substring(0, kn.length()-2);
         }
         cs.setKiNang(kn);
-        p3 = new page3(cs);
-        p3.setVisible(true);
-        this.setVisible(false);
+        if(chuyenNganh.getSelectedIndex()== -1 || thoiGian.getSelectedIndex() == -1 || tinhCach.getSelectedIndex()== -1 || kiNang.getSelectedIndex()==-1){
+            check =true;
+        }
+        
+        
+            p3 = new page3(cs);
+            p3.setVisible(true);
+            this.setVisible(false);
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
     /*Hiển thị chuyên ngành*/
     public void showChuyenNganh(){

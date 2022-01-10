@@ -5,7 +5,13 @@
  */
 package view;
 
+import DB.DAO;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Case;
+import static view.page3.kq;
 
 /**
  *
@@ -18,9 +24,34 @@ public class result extends javax.swing.JFrame {
      */
     private page3 p3;
     private Case cs;
+    private DAO dao;
     public result(Case cs) {
         initComponents();
+        jTextArea2.setText("");
+        hienThi();
         this.cs =cs;
+    }
+    public void hienThi(){
+        ResultSet rs;
+        String nghe;
+        String moTa;
+        dao = new DAO();
+        for (String string : page3.kq) {
+            rs = dao.searchJob(string);
+            try {
+                if(rs.next()){
+                    nghe= rs.getString("job");
+                    moTa = rs.getString("moTa");
+                    jTextArea2.append(nghe+ ": ");
+                    jTextArea2.append(moTa);
+                    jTextArea2.append("\n");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(page3.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }  
+        
+        
     }
 
     /**
@@ -64,6 +95,7 @@ public class result extends javax.swing.JFrame {
         });
 
         jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 

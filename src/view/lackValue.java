@@ -49,7 +49,9 @@ public class lackValue extends javax.swing.JFrame {
         jLabel1.setText("Nhắc nhở");
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.setText("Kết quả hệ thống trả về có thể không chính xác do bạn không chọn\ncác mục như: Chuyên ngành, tính cách, kỹ năng, thời gian làm việc.\nBạn có muốn cung cấp thêm những thông tin này không?");
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -120,6 +122,7 @@ public class lackValue extends javax.swing.JFrame {
         r = new result(cs);
         r.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
