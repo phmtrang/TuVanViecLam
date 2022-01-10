@@ -396,7 +396,7 @@ public class Admin extends javax.swing.JFrame {
     private void thoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thoatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_thoatActionPerformed
-
+    /*luu case vao group*/
     private void luuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuActionPerformed
         int tmp = trinhDo.getSelectedIndex();
         String table = "";
@@ -419,6 +419,7 @@ public class Admin extends javax.swing.JFrame {
                 table = "groupe";
             }
         }
+        // lay id cua nhung cai minh chon
         System.out.println(table);
         String cnganh = "";
         if(chuyenNganh.getSelectedIndex() != -1){
@@ -458,6 +459,7 @@ public class Admin extends javax.swing.JFrame {
             listChungChi = chungChi.getSelectedValuesList();               
         }
         dao = new DAO();
+        // luu case moi
         dao.createCase(table, cnganh, listTinhCach, listChungChi, moiTruong, nHinh, listKiNang, tinhChat, tGian, out); 
         JFrame frame = new JFrame("JOptionPane showMessageDialog example");
         JOptionPane.showMessageDialog(frame,

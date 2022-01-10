@@ -28,7 +28,7 @@ public class lackValue extends javax.swing.JFrame {
     private page2 p2;
     private result r;
     private Case cs;
-    public static List<String> kqNhom = new ArrayList<>();
+    
     public lackValue(Case cs) {
         initComponents();
         this.cs= cs;
@@ -130,52 +130,19 @@ public class lackValue extends javax.swing.JFrame {
         // TODO add your handling code here:
         run.rs.setVisible(true);
         run.lack.setVisible(false);
-        if(run.p3.kq.size() >= 4){
+        if(run.p3.kq.size() >= 4){  // neu nhieu hon 4 kq
             run.rs.hienThiKQNgoaiLe();
         }
         else{
             run.rs.hienThi();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-    public void binhThuong(){
+    public void binhThuong(){ //ham xu ly khi khong chon du nhung ra < 4 kq
         jTextArea1.setText("Kết quả hệ thống trả về có thể không chính xác do bạn không chọn các mục như: tính cách, kỹ năng, kiểu công việc. Bạn có muốn cung cấp thêm những thông tin này không?");
     }
-    public void ngoaiLe(){
+    public void ngoaiLe(){ //ham xu ly khi khong chon du nhung ra >= 4 kq
         jTextArea1.setText("Bạn hãy điền thêm các thông tin đã bỏ trống");
-        String stringKQ="";
-        for (String s : run.p3.kq) {
-            stringKQ += s;
-            stringKQ += ", ";
-        }
-        stringKQ = stringKQ.substring(0, stringKQ.length()-2);
-        DAO dao = new DAO();
-        Handle handle = new Handle();
-        ResultSet rs = dao.searchCase("groupf");
-        float [] kqNgoaiLe = new float[16];
-        try {
-            while (rs.next())
-            {
-                try {
-                    String col = rs.getString("job");
-                    kqNgoaiLe[Integer.parseInt(rs.getString("id"))] = (float) handle.soKhop(col,stringKQ, 6)/6;
-                } catch (SQLException ex) {
-                    Logger.getLogger(lackValue.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(lackValue.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        float max = 0;
-        for (int i = 0; i < kqNgoaiLe.length; i++) {
-            if(kqNgoaiLe[i] > max){
-                max = kqNgoaiLe[i];
-            }     
-        }
-        for (int i = 0; i < kqNgoaiLe.length; i++) {
-           if(kqNgoaiLe[i] == max){ 
-               kqNhom.add(dao.searchOutput("groupf", Integer.toString(i)));
-           }     
-        }
+        
     }
     /**
      * @param args the command line arguments

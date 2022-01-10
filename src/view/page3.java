@@ -192,6 +192,7 @@ public class page3 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dao = new DAO();
+        // dua du lieu nguoi dung nhap vao model case
         cs.setTinhChatCongViec(dao.getIDAttribute(tinhChat.getSelectedItem().toString(), "tinhChatCongViec", "tinhChatCongViec"));
         cs.setNgoaiHinh(dao.getIDAttribute(ngoaiHinh.getSelectedItem().toString(),"ngoaiHinh", "ngoaiHinh"));
         cs.setMoiTruongLamViec(dao.getIDAttribute(moiTruong.getSelectedItem().toString(), "moiTruongLamViec", "moiTruongLamViec"));
@@ -208,6 +209,7 @@ public class page3 extends javax.swing.JFrame {
             cc = cc.substring(0, cc.length()-2);
         }
         cs.setChungChi(cc); 
+        //tinh mot mang gia tri cac do tuong dong
         handle = new Handle();
         float[] output = new float[200];
         output = handle.tinhTuongDong(cs);
@@ -216,30 +218,40 @@ public class page3 extends javax.swing.JFrame {
             tmp[i] = output[i];
             
         }
+        //sap xep mang de tim gia tri tuong dong lon nhat
         Arrays.sort(tmp);
+        // them id output cua gia tri tuong dong lon nhat vao listkq
         for (int i = 0; i < tmp.length; i++) {
             if(output[i] == tmp[tmp.length-1]){
                 if(!kq.contains(dao.searchOutput(run.p1.group, Integer.toString(i))))
                 kq.add(dao.searchOutput(run.p1.group, Integer.toString(i)));
             }   
         }
+        // neu nguoi dung khong nhap 1 trong cac lua chon
         if(tinhChat.getSelectedIndex() == 0 || moiTruong.getSelectedIndex() == 0 || ngoaiHinh.getSelectedIndex() == 0 || chungChi.getSelectedIndex() == -1){
             run.p2.checkNgoaiLe = true;
         }
         System.out.println(kq);
+        // neu nguoi dung chon chua du va so kq > 4
         if(kq.size() >= 4 && run.p2.checkNgoaiLe == true){
             run.lack.setVisible(true);
             run.p3.setVisible(false);
             lackValue l = new lackValue(cs);
             l.ngoaiLe();
         }
-        if (run.p2.check == true) {
+        // neu nguoi dung chon du va ra >4 kq
+        else if(kq.size()>=4 && run.p2.checkNgoaiLe == false){
+            run.rs.hienThiKQNgoaiLe();
+        }
+        //neu nguoi dung nhap thieu tinh cach, ky nang, thoi gian
+        else if (run.p2.check == true) {
             run.lack.setVisible(true);
             run.p3.setVisible(false);
             lackValue l = new lackValue(cs);
-            l.binhThuong();
+            l.ngoaiLe();
+            
         }
-        else{
+        else{// neu ng dung nhap du tat ca
             run.rs.setVisible(true);
             run.p3.setVisible(false); 
             run.rs.hienThi();
