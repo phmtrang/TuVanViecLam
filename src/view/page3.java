@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import model.Case;
+import static view.page2.check;
 
 /**
  *
@@ -31,6 +32,7 @@ public class page3 extends javax.swing.JFrame {
     private lackValue lValue;
     private DAO dao;
     private Case cs;
+    public static List <String> kq = new ArrayList<>();
     public page3(Case cs) {
         initComponents();
         showNgoaiHinh();
@@ -215,27 +217,25 @@ public class page3 extends javax.swing.JFrame {
             
         }
         Arrays.sort(tmp);
-        List <String> kq = new ArrayList<>();
+        
         for (int i = 0; i < tmp.length; i++) {
             if(output[i] == tmp[tmp.length-1]){
                 if(!kq.contains(dao.searchOutput(page1.group, Integer.toString(i))))
                 kq.add(dao.searchOutput(page1.group, Integer.toString(i)));
             }   
         }
-        String nghe;
-        String moTa;
-        ResultSet rs;
-        for (String string : kq) {
-            rs = dao.searchJob(string);
-            try {
-                if(rs.next()){
-                    System.out.println(rs.getString("job"));
-                    System.out.println(rs.getString("moTa"));
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(page3.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }   
+        
+        
+        if (page2.check == true) {
+            lackValue lv = new lackValue(cs);
+            lv.setVisible(true);
+
+        }
+        else{
+            result r = new result(cs);
+            r.setVisible(true);
+            this.setVisible(false); 
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     /*Hiển thị tính chất công việc*/
     public void showTinhChatCongViec(){
