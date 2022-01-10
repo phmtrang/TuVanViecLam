@@ -5,9 +5,12 @@
  */
 package view;
 
+import Control.Handle;
 import DB.DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import main.run;
@@ -56,8 +59,12 @@ public class result extends javax.swing.JFrame {
         ResultSet rs;
         String nghe;
         String moTa;
+        List<String> kqNhom = new ArrayList<>();// nhom id cua case nhom f co do tuong dong lon nhat
+        Handle hd = new Handle();
+        kqNhom = hd.handleNgoaile();
         dao = new DAO();
-        for (String string : run.lack.kqNhom) {
+        // tung case in ra nghe va mo ta
+        for (String string : kqNhom) {
             rs = dao.searchJob(string);
             try {
                 if(rs.next()){

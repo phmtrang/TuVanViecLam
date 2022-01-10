@@ -24,6 +24,7 @@ public class Handle {
 
     private DAO dao;
     private Case cs;
+    
     // Ham nay de tinh do tuong dong
     public float[] tinhTuongDong(Case cs) {
         float output[] = new float[200];
@@ -121,5 +122,45 @@ public class Handle {
         sum += trongSo * dem / coSan.length;
         return sum;
 
+    }
+    //ham dung de tra ve danh sach kq nhom f
+    public List<String> handleNgoaile(){
+        List<String> kqNhom = new ArrayList<>();
+        String stringKQ = ""; //tao string de luu cac kq khi so kq >=4
+        for (String s : run.p3.kq) {
+            stringKQ += s;
+            stringKQ += ", ";
+        }
+        stringKQ = stringKQ.substring(0, stringKQ.length() - 2);
+        DAO dao = new DAO();
+        
+        ResultSet rs = dao.searchCase("groupf");
+        float[] kqNgoaiLe = new float[16]; // tinh do tuong dong cua cac case ngoai le
+        try {
+            while (rs.next()) {
+                try {
+                    String col = rs.getString("job");
+                    kqNgoaiLe[Integer.parseInt(rs.getString("id"))] = (float) soKhop(col, stringKQ, 6) / 6;
+                } catch (SQLException ex) {
+                    Logger.getLogger(Handle.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Handle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        float max = 0;
+        // lay ra gia tri do tuong dong kq ngoai le lon nhat
+        for (int i = 0; i < kqNgoaiLe.length; i++) {
+            if (kqNgoaiLe[i] > max) {
+                max = kqNgoaiLe[i];
+            }
+        }
+        //lay  list id cua kq ngoai le co do tuong dong lon nhat
+        for (int i = 0; i < kqNgoaiLe.length; i++) {
+            if (kqNgoaiLe[i] == max) {
+                kqNhom.add(dao.searchOutput("groupf", Integer.toString(i)));
+            }
+        }
+        return kqNhom;
     }
 }

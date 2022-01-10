@@ -29,8 +29,8 @@ public class page2 extends javax.swing.JFrame {
     private page3 p3;
     private DAO dao;
     private Case cs;
-    public static boolean check= false;
-    public static boolean checkNgoaiLe = false;
+    public static boolean check= false; // kiem tra xem co bi thieu thoi gian, tinh cach ki nang bước 7 k
+    public static boolean checkNgoaiLe = false; // buoc 14: xem đã chọn hết các thông tin chưa
     public page2(Case cs) {
         initComponents();
         showChuyenNganh();
@@ -193,6 +193,7 @@ public class page2 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dao = new DAO();
+        // them cac thuo tinh nguoi dung chon vao model case
         cs.setChuyenNganh(dao.getIDAttribute(chuyenNganh.getSelectedItem().toString(), "chuyennganh", "chuyenNganh"));
         cs.setThoiGianLamViec(dao.getIDAttribute(thoiGian.getSelectedItem().toString(), "hinhthuclamviec", "hinhThucLamViec"));
         List <String> listTinhCach = null;
@@ -223,6 +224,7 @@ public class page2 extends javax.swing.JFrame {
         cs.setKiNang(kn);
         check = false;
         checkNgoaiLe = false;
+        // neu nguoi dung nhap thieu
         if(thoiGian.getSelectedIndex() == 0 || tinhCach.getSelectedIndex()== -1 || kiNang.getSelectedIndex()==-1){
             check =true;
             checkNgoaiLe = true;
