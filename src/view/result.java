@@ -35,6 +35,7 @@ public class result extends javax.swing.JFrame {
     }
     public void hienThi(){
         jTextArea2.setText("");
+        jTextArea2.append("Bạn phù hợp với nghề như là:\n");
         ResultSet rs;
         String nghe;
         String moTa;
@@ -56,6 +57,7 @@ public class result extends javax.swing.JFrame {
     }
     public void hienThiKQNgoaiLe(){
         jTextArea2.setText("");
+        jTextArea2.setText("Bạn phù hợp với nhóm nghề:\n");
         ResultSet rs;
         String nghe;
         String moTa;
@@ -124,7 +126,7 @@ public class result extends javax.swing.JFrame {
         });
 
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jTextArea2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);

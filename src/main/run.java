@@ -6,7 +6,9 @@
 package main;
 
 import model.Case;
+import view.TrangChu;
 import view.lackValue;
+import view.login;
 import view.page1;
 import view.page2;
 import view.page3;
@@ -29,9 +31,10 @@ public class run {
     }
     public static lackValue lack = new lackValue(cs);
     public static result rs = new result(cs);
+    public static TrangChu trangChu = new TrangChu();
     public static void main(String[] args) {
         // TODO code application logic here
-         p1.setVisible(true);
+         trangChu.setVisible(true);
          
     }
     public void close(){
@@ -40,6 +43,7 @@ public class run {
         p3.dispose();
         lack.dispose();
         rs.dispose();
+        trangChu.dispose();
     }
     
 }

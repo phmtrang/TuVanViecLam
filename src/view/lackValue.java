@@ -141,7 +141,7 @@ public class lackValue extends javax.swing.JFrame {
         jTextArea1.setText("Kết quả hệ thống trả về có thể không chính xác do bạn không chọn các mục như: tính cách, kỹ năng, kiểu công việc. Bạn có muốn cung cấp thêm những thông tin này không?");
     }
     public void ngoaiLe(){ //ham xu ly khi khong chon du nhung ra >= 4 kq
-        jTextArea1.setText("Bạn hãy điền thêm các thông tin đã bỏ trống");
+        jTextArea1.setText("Bạn hãy điền thêm các thông tin đã bỏ trống để hệ thống có thể trả về kết quả phù hợp nhất với bạn.");
         
     }
     /**

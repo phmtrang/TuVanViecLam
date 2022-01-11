@@ -44,7 +44,26 @@ public class DAO {
             System.err.println("Loi ket noi DB: " + ex.getMessage());
         }
     }
-    
+    /*Dang nhap*/
+    public boolean checkAccount(String username, String password){
+        try {
+            Class.forName(JDBC_DRIVER);    
+            Statement stm = conn.createStatement();
+            String sql = "select * from admin where userName='"+username+"' and password='"+password+"'";
+            ResultSet rs = stm.executeQuery(sql);
+            if(rs.next()){
+                return true;
+            }
+             else {
+                return false;
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
     /*lấy chuyên ngành từ DB*/
     public ResultSet getChuyenNganh() {
         
