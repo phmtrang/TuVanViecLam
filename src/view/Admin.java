@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import main.run;
 
 /**
  *
@@ -394,7 +395,8 @@ public class Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void thoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thoatActionPerformed
-        // TODO add your handling code here:
+        run.trangChu.setVisible(true);
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_thoatActionPerformed
     /*luu case vao group*/
     private void luuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luuActionPerformed
