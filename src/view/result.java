@@ -64,7 +64,7 @@ public class result extends javax.swing.JFrame {
         List<String> kqNhom = new ArrayList<>();// nhom id cua case nhom f co do tuong dong lon nhat
         Handle hd = new Handle();
         kqNhom = hd.handleNgoaile();
-        System.out.println(kqNhom);
+        System.out.println("id nhóm nghề phù hợp tìm đươc: "+kqNhom);
         dao = new DAO();
         // tung case in ra nghe va mo ta
         for (String string : kqNhom) {
@@ -73,9 +73,7 @@ public class result extends javax.swing.JFrame {
             try {
                 if(rs.next()){
                     nghe= rs.getString("job");
-                    System.out.println(nghe);
                     moTa = rs.getString("moTa");
-                    System.out.println(moTa);
                     jTextArea2.append(nghe+ ": ");
                     jTextArea2.append(moTa);
                     jTextArea2.append("\n\n");
