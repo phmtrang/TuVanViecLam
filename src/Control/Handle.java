@@ -44,12 +44,11 @@ public class Handle {
                     
                  */
                 sum = 0;
-                m=0;
+                m=demSoThuocTinhNguoiDungNhap(cs);
                 if (cs.getChuyenNganh() != "" && rs.getString("chuyenNganh") != null) {
                     if (rs.getString("chuyenNganh").equals(cs.getChuyenNganh())) {
                         sum += 6 * 1;
                     }
-                    m += 6;
                 }
                 if (cs.getMoiTruongLamViec() != "") {
                     if (rs.getString("moiTruongLamViec").equals(cs.getMoiTruongLamViec())) {
@@ -57,7 +56,6 @@ public class Handle {
                     } else {
                         sum += 1 * 0.5;
                     }
-                    m += 1;
                 }
                 if (cs.getThoiGianLamViec() != "" && rs.getString("thoiGianLamViec") != null) {
                     if (rs.getString("thoiGianLamViec").equals(cs.getThoiGianLamViec())) {
@@ -65,7 +63,6 @@ public class Handle {
                     } else {
                         sum += 4 * 0;
                     }
-                    m += 4;
                 }
                 if (cs.getNgoaiHinh() != "") {
                     if (rs.getString("ngoaiHinh").equals(cs.getNgoaiHinh())) {
@@ -73,7 +70,6 @@ public class Handle {
                     } else {
                         sum += 1 * 0.5;
                     }
-                    m += 1;
                 }
                 if (cs.getTinhChatCongViec() != "") {
                     if (rs.getString("tinhChatCongViec").equals(cs.getTinhChatCongViec())) {
@@ -81,22 +77,18 @@ public class Handle {
                     } else {
                         sum += 1 * 0.5;
                     }
-                    m+=1;
                 }
                 /*xu li tinh cach*/
                 if (cs.getTinhCach() != "" && rs.getString("tinhCach") != null) {
                     sum += soKhop(rs.getString("tinhCach"), cs.getTinhCach(),4);
-                    m+=4;
                 }
                 /*Xu li ki nang*/
                 if (cs.getKiNang() != "" && rs.getString("kiNang") != null) {
                     sum += soKhop(rs.getString("kiNang"), cs.getKiNang(), 4);
-                    m+=4;
                 }
                 /*Xu li chung chi*/
                 if (cs.getChungChi() != "" && rs.getString("chungchi") != null) {
                     sum += soKhop(rs.getString("chungChi"), cs.getChungChi(), 2);
-                    m+=2;
                 }
                 output[Integer.parseInt(rs.getString("id"))] = (float)sum / m;
             }
@@ -107,7 +99,19 @@ public class Handle {
         }
         return null;
     }
-
+    public int demSoThuocTinhNguoiDungNhap(Case cs){
+        int m = 0;
+        this.cs = cs;
+        if(cs.getChungChi() != "") m += 2;
+        if(cs.getChuyenNganh() != "") m+= 6; 
+        if(cs.getKiNang() != "") m+=4;
+        if(cs.getMoiTruongLamViec()!= "") m+=1;
+        if(cs.getTinhCach()!="") m+=4;
+        if(cs.getThoiGianLamViec() != "") m+=4;
+        if(cs.getNgoaiHinh()!="") m+= 1;
+        if(cs.getTinhChatCongViec()!= "") m+=1;
+        return m;
+    }
     public int soKhop(String colName, String value, int trongSo) {
         int sum = 0;
         String[] coSan = colName.split(", ");
