@@ -139,10 +139,15 @@ public class lackValue extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
     public void binhThuong(){ //ham xu ly khi khong chon du nhung ra < 4 kq
         jTextArea1.setText("Kết quả hệ thống trả về có thể không chính xác do bạn không chọn các mục như: tính cách, kỹ năng, kiểu công việc. Bạn có muốn cung cấp thêm những thông tin này không?");
+        jButton2.setVisible(true);
     }
     public void ngoaiLe(){ //ham xu ly khi khong chon du nhung ra >= 4 kq
         jTextArea1.setText("Bạn hãy điền thêm các thông tin đã bỏ trống để hệ thống có thể trả về kết quả phù hợp nhất với bạn.");
-        
+        jButton2.setVisible(true);
+    }
+    public void nguoiDungKhongChon(){
+        jTextArea1.setText("Xin lỗi, chúng tôi không thể tìm ra được kết quả do bạn cung cấp quá ít thông tin cho hệ thống. Bạn vui lòng cung cấp thêm các thông tin đã bỏ trống!");
+        jButton2.setVisible(false);
     }
     /**
      * @param args the command line arguments

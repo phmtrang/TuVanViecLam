@@ -220,21 +220,32 @@ public class page3 extends javax.swing.JFrame {
         }
         //sap xep mang de tim gia tri tuong dong lon nhat
         Arrays.sort(tmp);
+        boolean ktraDoTuongDongLonHonKhong = true;
+        if(tmp[tmp.length-1] == 0){
+            ktraDoTuongDongLonHonKhong = false;
+        }
         // them id output cua gia tri tuong dong lon nhat vao listkq
         kq.clear();
+        System.out.println("Mảng các độ tương đồng: ");
         for (int i = 0; i < tmp.length; i++) {
+            System.out.print(+output[i] + " ");
             if(output[i] == tmp[tmp.length-1]){
                 if(!kq.contains(dao.searchOutput(run.p1.group, Integer.toString(i))))
                 kq.add(dao.searchOutput(run.p1.group, Integer.toString(i)));
             }   
         }
+        System.out.println("\nID các nhề có độ tương đồng lớn nhất tìm được: "+kq);
         // neu nguoi dung khong nhap 1 trong cac lua chon
         if(tinhChat.getSelectedIndex() == 0 || moiTruong.getSelectedIndex() == 0 || ngoaiHinh.getSelectedIndex() == 0 || chungChi.getSelectedIndex() == -1){
             run.p2.checkNgoaiLe = true;
         }
-        System.out.println(kq);
         // neu nguoi dung chon chua du va so kq > 4
-        if(kq.size() >= 4 && run.p2.checkNgoaiLe == true){
+        if(!ktraDoTuongDongLonHonKhong){
+            run.lack.setVisible(true);
+            run.p3.setVisible(false);
+            run.lack.nguoiDungKhongChon();
+        }
+        else if(kq.size() >= 4 && run.p2.checkNgoaiLe == true){
             run.lack.setVisible(true);
             run.p3.setVisible(false);
             run.lack.ngoaiLe();

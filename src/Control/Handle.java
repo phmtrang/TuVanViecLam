@@ -38,7 +38,7 @@ public class Handle {
             dao = new DAO();
             ResultSet rs = dao.searchCase(run.p1.group);
             int sum = 0;
-            System.out.println(cs.toString());
+            System.out.println("Case truy vấn: "+cs.toString());
             while (rs.next()) {
                 /*cách tình độ tương đồng:
                     

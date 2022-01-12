@@ -197,6 +197,7 @@ public class Admin extends javax.swing.JFrame {
         trinhDo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dưới THPT", "THPT", "Trung cấp", "Cao đẳng", "Đại học" }));
 
         chuyenNganh.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        chuyenNganh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Không có" }));
 
         thoiGian.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         thoiGian.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
