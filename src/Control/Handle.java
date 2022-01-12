@@ -37,7 +37,7 @@ public class Handle {
             this.cs = cs;
             dao = new DAO();
             ResultSet rs = dao.searchCase(run.p1.group);
-            int sum = 0;
+            float sum = 0;
             System.out.println("Case truy vấn: "+cs.toString());
             while (rs.next()) {
                 /*cách tình độ tương đồng:
@@ -54,7 +54,7 @@ public class Handle {
                     if (rs.getString("moiTruongLamViec").equals(cs.getMoiTruongLamViec())) {
                         sum += 1 * 1;
                     } else {
-                        sum += 1 * 0.5;
+                        sum += (float)1 * 0.5;
                     }
                 }
                 if (cs.getThoiGianLamViec() != "" && rs.getString("thoiGianLamViec") != null) {
@@ -68,27 +68,27 @@ public class Handle {
                     if (rs.getString("ngoaiHinh").equals(cs.getNgoaiHinh())) {
                         sum += 1 * 1;
                     } else {
-                        sum += 1 * 0.5;
+                        sum += (float)1 * 0.5;
                     }
                 }
                 if (cs.getTinhChatCongViec() != "") {
                     if (rs.getString("tinhChatCongViec").equals(cs.getTinhChatCongViec())) {
                         sum += 1 * 1;
                     } else {
-                        sum += 1 * 0.5;
+                        sum += (float)1 * 0.5;
                     }
                 }
                 /*xu li tinh cach*/
                 if (cs.getTinhCach() != "" && rs.getString("tinhCach") != null) {
-                    sum += soKhop(rs.getString("tinhCach"), cs.getTinhCach(),4);
+                    sum += (float) soKhop(rs.getString("tinhCach"), cs.getTinhCach(),4);
                 }
                 /*Xu li ki nang*/
                 if (cs.getKiNang() != "" && rs.getString("kiNang") != null) {
-                    sum += soKhop(rs.getString("kiNang"), cs.getKiNang(), 4);
+                    sum += (float) soKhop(rs.getString("kiNang"), cs.getKiNang(), 4);
                 }
                 /*Xu li chung chi*/
                 if (cs.getChungChi() != "" && rs.getString("chungchi") != null) {
-                    sum += soKhop(rs.getString("chungChi"), cs.getChungChi(), 2);
+                    sum += (float) soKhop(rs.getString("chungChi"), cs.getChungChi(), 2);
                 }
                 output[Integer.parseInt(rs.getString("id"))] = (float)sum / m;
             }
@@ -112,8 +112,8 @@ public class Handle {
         if(cs.getTinhChatCongViec()!= "") m+=1;
         return m;
     }
-    public int soKhop(String colName, String value, int trongSo) {
-        int sum = 0;
+    public float soKhop(String colName, String value, int trongSo) {
+        float sum = 0;
         String[] coSan = colName.split(", ");
         String[] nguoiDungNhap = value.split(", ");
         int dem = 0;
@@ -126,7 +126,7 @@ public class Handle {
             }
 
         }
-        sum += trongSo * dem / coSan.length;
+        sum += (float)trongSo * (float)dem / coSan.length;
         return sum;
 
     }
@@ -140,7 +140,6 @@ public class Handle {
         }
         stringKQ = stringKQ.substring(0, stringKQ.length() - 2);
         DAO dao = new DAO();
-        
         ResultSet rs = dao.searchCase("groupf");
         float[] kqNgoaiLe = new float[16]; // tinh do tuong dong cua cac case ngoai le
         try {
@@ -157,13 +156,14 @@ public class Handle {
         }
         float max = 0;
         // lay ra gia tri do tuong dong kq ngoai le lon nhat
-        for (int i = 0; i < kqNgoaiLe.length; i++) {
+        for (int i = 1; i < kqNgoaiLe.length; i++) {
             if (kqNgoaiLe[i] > max) {
                 max = kqNgoaiLe[i];
             }
         }
+        System.out.println("");
         //lay  list id cua kq ngoai le co do tuong dong lon nhat
-        for (int i = 0; i < kqNgoaiLe.length; i++) {
+        for (int i = 1; i < kqNgoaiLe.length; i++) {
             if (kqNgoaiLe[i] == max) {
                 kqNhom.add(dao.searchOutput("groupf", Integer.toString(i)));
             }

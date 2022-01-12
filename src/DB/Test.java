@@ -19,23 +19,9 @@ import java.util.logging.Logger;
 /*File này chỉ để test linh tinh, không liên quan đến bài :vvvvv*/
 public class Test {
     public static void main(String[] args) {
-        float[] test = new float[10];
-        for (int i = 0; i < test.length; i++) {
-            test[i] = test.length -i;
-        }
-        float[] tmp = new float[10];
-        for (int i = 0; i < tmp.length; i++) {
-            tmp[i] = test[i];
-            
-        }
-        Arrays.sort(tmp);
-        for (float f : tmp) {
-            System.out.print(f +",");
-        }
-        System.out.println("");
-        for (float f : test) {
-            System.out.println(f+",");
-        }
+        float sum = 0;
+        sum+= 1/3;
+        System.out.println(sum);
         
 }
 }
